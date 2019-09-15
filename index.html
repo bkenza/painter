@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Painter - old school paint editor" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bkenza.github.io/painter" />
+    <!-- TODO: COME BACK TO THIS -->
+    <!-- <meta property="og:image" content="https://kenreilly.github.io/paintbros/images/preview.png" /> -->
+    
+    <title>Painter - old school paint editor</title>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+    <script type="module" src="./build/painter.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>painter</h1>
+        <div class="commands">
+            <button name="about">?</button>
+            <button name="save">save</button>
+            <button name="new">new</button>
+        </div>
+    </header>
+
+    <div class="display">
+
+        <div class="editor-container">
+            <div class="editor"></div>
+        </div>
+
+        <div class="sidebar">
+            <h2>Colour Palette</h2>
+            <div class="palette"></div>
+
+            <h2>Selected</h2>
+            <div class="selected">
+                <div class="current-color"></div>
+                <div class="recent-colors"></div>
+            </div>
+
+            <h2>Tools</h2>
+            <div class="tools">
+                <button name="Paint" class="picked">!</button>
+                <button name="Erase">x</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div>&copy;2019 Kenza Boulisfane</div>
+        <div><a href="https://github.com/bkenza">@bkenza</a></div>
+    </footer>
+
+    <div class="modal-container hidden">
+
+        <div class="modal hidden" name="new_file">
+
+            <h2 class="modal-title">new image</h2>
+            <form>
+
+                <span>height:</span>
+                <input name="height" />
+            
+                <span>width:</span>
+                <input name="width" />
+            </form>
+    
+            <div class="buttons">
+                <button name="cancel">Cancel</button>
+                <button name="ok">OK</button>
+            </div>
+        </div>
+
+        <div class="modal big hidden" name="about">
+
+            <h2 class="modal-title">about Painter</h2>
+            <div>
+
+                <p>Welcome to Painter, a second take on Kenneth Reilly's retro bitmap graphics editor (which you can find <a href="https://https://github.com/TheInnovationGroup/paintbros">here</a>).</p>
+            </div>
+            <div class="buttons">
+                <button name="ok">OK</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
