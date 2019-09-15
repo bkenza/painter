@@ -1,0 +1,310 @@
+/* @import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap); */
+/* @import url(https://fonts.googleapis.com/css?family=Sanchez&display=swap); */
+/* @import url(https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Sanchez&display=swap|Teko&display=swap|Orbitron:400,700); */
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap);
+
+
+:root {
+
+    --pink: rgb(239, 211, 247);
+    --glass-pink: rgb(239, 211, 247, 0.32);
+    --test-glass: rgba(0, 0, 0, 0.8);
+    --dark: rgba(0, 17, 17, 1);
+    --link-hover: rgb(226, 176, 240);
+    --dark-glass: rgba(0, calc(var(--d-val) * 0.4), calc(var(--d-val) * 0.6), 0.8);
+    --editor-background: repeating-linear-gradient(-45deg,#4c4c4e5b,#4a4b4d50 5px,#4243444f 5px,#2d2d2e17 10px);
+
+
+
+    --base-metric: 48px;
+    --header-height: var(--base-metric);
+    --palette-item-size: 16px;
+    --palette-width: calc(var(--palette-item-size) * 16);
+
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%
+}
+
+body {
+    background: #000;
+    color: var(--pink);
+    font-family: 'Teko', sans-serif;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+}
+
+header {
+    width: 100%;
+    height: var(--header-height);
+    border-bottom: 1px solid var(--pink);
+    background: var(--test-glass);
+}
+
+.commands {
+    float: right;
+    height: var(--header-height);
+    display: flex;
+}
+
+.commands > button {
+    float: right;
+    margin: 12px 6px;
+    padding: 0 8px;
+    border: 1px solid var(--pink);
+    color: var(--pink);
+    background: var(--dark)
+}
+
+.commands > button:last-child {
+    margin-right: 14px;
+}
+
+h1 {
+    z-index: 1;
+    float: left;
+    color: var(--pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 30px;
+    margin: 10px 0 0 8px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px var(--pink);
+}
+
+h2, h3, h4 { color: var(--dark); text-shadow: 1px 1px 3px var(--pink); }
+h2 { font-size: 18px }
+
+a {
+    color: var(--pink);
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+div.display {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+div.editor-container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    border: 1px solid var(--pink);
+    --dim: max(80vh, 40vw);
+    min-height: var(--dim);
+    align-items: stretch;
+}
+
+div.editor {
+    cursor: default;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    border-right: 1px solid #5a5a5a;
+    border-bottom: 1px solid #5a5a5a;
+    background: var(--editor-background);
+}
+
+.editor > i {
+    display: block;
+    box-shadow: inset 1px 1px #5a5a5a;
+}
+
+div.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: flex-start;
+    border-left: 1px solid var(--pink);
+    border-right: 1px solid var(--pink);
+    height: var(--dim);
+    padding: 8px; 
+}
+
+div.sidebar > h2 { margin: 0 0 12px 0 }
+div.sidebar > h2 + div { margin-bottom: 24px; }
+
+footer {
+    flex-shrink: 1;
+    width: 100%;
+    align-self: flex-end;
+    padding-left: 12px;
+    font-weight: normal;
+    border-top: 1px solid var(--pink);
+}
+
+footer > div {
+    float: left;
+    line-height: 18px;
+    margin: 6px 12px;
+    font-size: 12px;
+}
+
+footer > div:nth-child(2) {
+    float: right;
+    font-size: 13px;
+}
+
+.palette {
+    height: var(--palette-width);
+    width: var(--palette-width);
+    display: block;
+    clear: both;
+    box-sizing: border-box;
+    overflow: auto;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.palette > div {
+    height: var(--palette-item-size);
+    width: var(--palette-item-size);
+    padding: 0;
+}
+
+.palette > div:hover {
+    cursor: grab;
+}
+
+.selected {
+    display: flex;
+    width: var(--palette-width);
+}
+
+.recent-colors { 
+   display: flex;
+   flex-flow: row wrap;
+}
+
+.recent-colors > div {
+    height: 14px;
+    width: 14px;
+    margin: 1px;
+    float: left;
+}
+
+.current-color > div {
+    border: 1px solid var(--pink); /* TODO: CHANGED THIS*/
+    height: 28px;
+    width: 28px;
+    margin: 1px;
+}
+
+button {
+
+    font-size: 14px;
+    border: 1px solid var(--pink);
+    background-color: var(--dark-glass);
+    color: var(--pink);
+    font-style: italic;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--pink-glass);
+}
+
+button.picked {
+    color: var(--pink);
+    background-color: var(--dark-glass); 
+}
+
+.tools > button {
+    height: 34px;
+    width: 32px;
+    margin: 1px;
+}
+
+.modal-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    display: flex;
+    align-items: stretch;
+    flex-flow: column nowrap;
+    border: 1px solid var(--pink);
+    background-color: #000;
+    height: 40%;
+    width: 40%;
+    padding: 20px;
+}
+
+.modal.big {
+    height: 60%;
+    width: 60%;
+}
+
+.modal > h2 {
+    border-bottom: 1px solid var(--pink);
+}
+
+.modal > form, .modal > div {
+    flex-grow: 1;
+    padding-top: 20px;
+}
+
+.modal > form > span {
+    display: block;
+    float: left;
+    width: 20%;
+    margin-bottom: 12px;
+}
+
+select { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+
+select > option {
+    background-color: #000;
+    color: var(--pink);
+}
+
+input, select {
+    background-color: var(--pink);
+    border: 1px solid var(--pink);
+    color: var(--pink);
+    font-size: 14px;
+    padding: 2px;
+}
+
+.modal > form > input, .modal > form > select {
+    width: 40%;
+    clear: right;
+    margin-bottom: 12px;
+    margin-right: 20%;
+}
+
+.modal > div.buttons {
+    flex-shrink: 1;
+    display: flex;
+    max-height: 38px;
+    flex-direction: row-reverse;
+}
+
+.modal > div.buttons > button {
+    margin-left: 20px;
+    padding: 4px 12px;
+}
+
+.hidden { display: none }
+
